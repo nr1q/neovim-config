@@ -25,3 +25,19 @@ end
 
 require "lazy_setup"
 require "polish"
+
+-- Set which wrap keys
+vim.opt.whichwrap = vim.opt.whichwrap + "<,>,[,]"
+
+-- Toggle word wrap
+vim.keymap.set("n", "<f10>", ":set wrap!<CR>")
+
+-- Avoid window split when navigating buffers
+vim.keymap.del("n", "\\")
+vim.keymap.del("n", "|")
+
+-- Mapeo para cambiar al siguiente buffer con \
+vim.api.nvim_set_keymap("n", "\\k", ":bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
+
+-- Opcional: para buffer anterior
+vim.api.nvim_set_keymap("n", "\\j", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
