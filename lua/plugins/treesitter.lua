@@ -10,6 +10,7 @@ return {
       "html",
       "javascript",
       "typescript",
+      "yaml",
       -- "tsx",
       -- "vim",
       -- add more arguments for adding more treesitter parsers
