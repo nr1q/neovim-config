@@ -143,23 +143,44 @@ return {
     },
   },
 
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   -- opts = {
+  --   --   strategies = {
+  --   --    chat = {
+  --   --       adapter = "anthropic",
+  --   --       model = "claude-sonnet-4-20250514"
+  --   --     },
+  --   --   },
+  --   --   -- NOTE: The log_level is in `opts.opts`
+  --   --   opts = {
+  --   --     log_level = "DEBUG", -- or "TRACE"
+  --   --   },
+  --   -- },
+  -- },
+
   {
-    "olimorris/codecompanion.nvim",
+    "Exafunction/windsurf.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp",
     },
-    -- opts = {
-    --   strategies = {
-    --     chat = {
-    --       adapter = "anthropic",
-    --       model = "claude-sonnet-4-20250514"
-    --     },
-    --   },
-    --   -- NOTE: The log_level is in `opts.opts`
-    --   opts = {
-    --     log_level = "DEBUG", -- or "TRACE"
-    --   },
-    -- },
+    config = function()
+      -- Detect internet connection by checking return code
+      -- local ret = os.execute("ping -c 3 8.8.8.8 > /dev/null 2>&1")
+
+      require("codeium").setup {
+        virtual_text = {
+          enabled = true,
+          key_bindings = {
+            accept = "<C-y>",
+          },
+        },
+      }
+    end,
   },
 }
