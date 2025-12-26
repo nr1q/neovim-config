@@ -29,9 +29,6 @@ require "polish"
 -- Set which wrap keys
 vim.opt.whichwrap = vim.opt.whichwrap + "<,>,[,]"
 
--- Toggle word wrap
-vim.keymap.set("n", "<f10>", ":set wrap!<CR>")
-
 -- Avoid window split when navigating buffers
 vim.keymap.del("n", "\\")
 vim.keymap.del("n", "|")
